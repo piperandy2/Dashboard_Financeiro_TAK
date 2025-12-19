@@ -187,22 +187,68 @@ function render(){
 }
 
 function renderCards(containerId, defs){
-  const c = document.getElementById(containerId); c.innerHTML = '';
+  const c = document.getElementById(containerId);
+  c.innerHTML = '';
+
   defs.forEach(([key,label]) => {
-    const row = getCat(key); if(!row) return;
+    const row = getCat(key);
+    if(!row) return;
+
     const values = months.map(m => parseValue(row[m]));
-    const i = months.indexOf(currentMonth);
-    const cur = values[i]; const prev = values[i-1] ?? cur;
-    const diff = prev ? ((cur - prev) / prev) * 100 : 0;
+    const idx = months.indexOf(currentMonth);
+    const current = values[idx];
+    const prev = values[idx - 1] ?? current;
+    const diff = prev ? ((current - prev) / prev) * 100 : 0;
     const up = diff >= 0;
 
-    const card = document.createElement('div'); card.className='card';
+    const sparkId = `spark-${containerId}-${key.replace(/[^a-zA-Z0-9]/g,'')}`;
+
+    const card = document.createElement('div');
+    card.className = 'card';
     card.innerHTML = `
-      <div class='card-title'>${label}</div>
-      <div class='card-value'>${row[currentMonth]}</div>
-      <span class='delta ${up ? 'up':'down'}'>${up?'▲':'▼'} ${Math.abs(diff).toFixed(1)}%</span>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div>
+          <div class="card-title">${label}</div>
+          <div class="card-value">${row[currentMonth]}</div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+        <span class="delta ${up ? 'up' : 'down'}">
+          ${up ? '▲' : '▼'} ${Math.abs(diff).toFixed(1)}%
+        </span>
+        <div id="${sparkId}" style="width:90px;height:32px;"></div>
+      </div>
     `;
+
     c.appendChild(card);
+
+    const color = up ? '#059669' : '#dc2626';
+    const fill = up
+      ? 'rgba(5,150,105,0.25)'
+      : 'rgba(220,38,38,0.25)';
+
+    Plotly.newPlot(
+      sparkId,
+      [{
+        x: months,
+        y: values,
+        type: 'scatter',
+        mode: 'lines',
+        line: { color, width: 2 },
+        fill: 'tozeroy',
+        fillcolor: fill
+      }],
+      {
+        margin: { t:2, l:2, r:2, b:2 },
+        xaxis: { visible:false },
+        yaxis: { visible:false }
+      },
+      {
+        displayModeBar: false,
+        staticPlot: true
+      }
+    );
   });
 }
 
