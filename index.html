@@ -299,13 +299,19 @@ function renderBar(divId, title, keys, names){
   const traces = keys.map((k,i) => {
     const row = getCat(k);
     if(!row) return null;
+
+    const color = CHART_COLORS[i % CHART_COLORS.length];
+    const fill = color + '33';
+
     return {
       type:'bar',
       x: months,
       y: months.map(m => parseValue(row[m])),
       name: names[i],
-      line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
-      marker:{ color: CHART_COLORS[i % CHART_COLORS.length] + '33' }
+      marker:{
+        color: fill,
+        line:{ color: color, width:2 }
+      }
     };
   }).filter(Boolean);
 
