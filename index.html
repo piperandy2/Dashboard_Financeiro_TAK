@@ -305,15 +305,9 @@ function renderArea(divId, title, keys, names){
 
   Plotly.newPlot(divId, traces, {
     title,
-    margin:{t:40,l:60,r:20,b:30},
-    legend:{orientation:'h',y:-0.25},
-    yaxis: {
-      tickprefix: 'R$ ',
-      tickformat: ',.0f'
-    },
-    hoverlabel: {
-      bgcolor: '#111827',
-      font: { color: '#fff' }}});
+    margin:{t:40,l:40,r:20,b:30},
+    legend:{orientation:'h',y:-0.25}
+  }, {responsive:true,displayModeBar:false});
 }
 
 function renderBar(divId, title, keys, names){
@@ -340,14 +334,9 @@ function renderBar(divId, title, keys, names){
   Plotly.newPlot(divId, traces, {
     title,
     barmode:'stack',
-    margin:{t:40,l:60,r:20,b:30},
-    legend:{orientation:'h',y:-0.25},
-    yaxis: {
-      tickprefix: 'R$ ',
-      tickformat: ',.0f'
-    }
-  }
-);
+    margin:{t:40,l:40,r:20,b:30},
+    legend:{orientation:'h',y:-0.25}
+  }, {responsive:true,displayModeBar:false});
 }
 
 fileInput.addEventListener('change', e => {
