@@ -205,10 +205,11 @@ const formatBRL = v =>
 
 function formatValue(label, value){
   if (label.includes('%')) {
-    return `${value.toFixed(1)}%`;
+    return `${(value * 100).toFixed(1)}%`;
   }
   return formatBRL(value);
 }
+
 
 function getCat(name){ return raw.find(r => r.Categoria === name); }
 
