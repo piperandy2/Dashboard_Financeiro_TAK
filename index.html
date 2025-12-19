@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Dashboard Financeiro</title>
-  <p id="contextLine" style="font-size:12px;color:#6b7280;margin-bottom:16px;"></p>
   <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
   <style>
     body { margin:0; font-family:Inter,Arial,sans-serif; background:#f5f7fb; color:#1f2937; }
@@ -61,38 +60,6 @@
     .delta.down { background:#fef2f2; color:#dc2626; }
 
     select,input { padding:6px 10px; border-radius:8px; border:1px solid #d1d5db; }
-
-    /* ===============================
-    KPI Tooltips
-    =============================== */
-    .tooltip {
-      position: relative;
-      cursor: help;
-    }
-    
-    .tooltip span {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #111827;
-      color: #fff;
-      font-size: 11px;
-      padding: 6px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: opacity 0.2s ease;
-      z-index: 20;
-    }
-    
-    .tooltip:hover span {
-      visibility: visible;
-      opacity: 1;
-    }
-
   </style>
 </head>
 <body>
@@ -100,11 +67,6 @@
   <h1>Dashboard Financeiro</h1>
 
   <div class="controls">
-    <div style="margin-bottom:16px;display:flex;gap:8px;">
-      <button class="month-chip active" data-avg="1">Mensal</button>
-      <button class="month-chip" data-avg="3">Média 3m</button>
-      <button class="month-chip" data-avg="12">Média 12m</button>
-    </div>
     <div class="month-controls">
       <div>
         <label>Mês:&nbsp;</label>
@@ -177,17 +139,6 @@ function init(json){
   render();
 }
 
-function initAvgToggles(){
-  document.querySelectorAll('[data-avg]').forEach(btn => {
-    btn.onclick = () => {
-      avgWindow = Number(btn.dataset.avg);
-      document.querySelectorAll('[data-avg]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      render();
-    };
-  });
-}
-
 function populateMonths(){
   const sel = document.getElementById('monthSelect');
   const quick = document.getElementById('quickMonths');
@@ -211,30 +162,8 @@ function populateMonths(){
 
   sel.onchange = e => { currentMonth = e.target.value; populateMonths(); render(); };
 }
-  
-function updateContextLine(){
-  const el = document.getElementById('contextLine');
-  if (!el) return; // ✅ prevents crashes
 
-  const now = new Date().toLocaleString('pt-BR');
-  el.textContent = `Mês selecionado: ${currentMonth} • Última atualização: ${now}`;
-}
-
-
-let avgWindow = 1;
-
-function rollingAverage(values, window){
-  if(window === 1) return values;
-  return values.map((_, i) => {
-    const start = Math.max(0, i - window + 1);
-    const slice = values.slice(start, i + 1);
-    return slice.reduce((a,b) => a + b, 0) / slice.length;
-  });
-}
-  
-  
 function render(){
-  updateContextLine();
   renderCards('topKPIs', [
     ['RECEITAS','Receitas'],
     ['DESPESAS','Despesas'],
@@ -291,36 +220,6 @@ function renderCards(containerId, defs){
     'Caixinha':'M4 7h16v12H4zM10 13h4'
   };
 
-  const KPI_DESCRIPTIONS = {
-  'Receitas': 'Total faturado no mês selecionado',
-  'Despesas': 'Soma de todos os custos do mês',
-  'Saldo Mês': 'Receitas menos despesas do período',
-  'Lucro %': 'Lucro líquido em relação às receitas',
-  'Vendas Stone': 'Valor total processado pela Stone',
-  'Qtd Vendas': 'Número de transações realizadas',
-  'Ticket Médio': 'Valor médio por venda',
-  'Saldo Inicial': 'Saldo disponível no início do mês',
-  'Saldo Final Unicred': 'Saldo final da conta Unicred',
-  'Saldo Final Stone': 'Saldo final da Stone',
-  'Caixinha': 'Reserva financeira'
-};
-
-  const KPI_POLARITY = {
-  'Receitas': 'up',
-  'Despesas': 'down',
-  'Saldo Mês': 'up',
-  'Lucro %': 'up',
-  'Vendas Stone': 'up',
-  'Qtd Vendas': 'up',
-  'Ticket Médio': 'up',
-  'Saldo Inicial': 'up',
-  'Saldo Final Unicred': 'up',
-  'Saldo Final Stone': 'up',
-  'Caixinha': 'up'
-};
-
-
-
   defs.forEach(([key,label]) => {
     const row = getCat(key);
     if(!row) return;
@@ -330,9 +229,7 @@ function renderCards(containerId, defs){
     const cur = values[i];
     const prev = values[i-1] ?? cur;
     const diff = prev ? ((cur - prev) / prev) * 100 : 0;
-    const polarity = KPI_POLARITY[label] || 'up';
-    const up = polarity === 'up' ? diff >= 0 : diff < 0;
-
+    const up = diff >= 0;
 
     const sparkId = `spark-${containerId}-${key.replace(/[^a-zA-Z0-9]/g,'')}`;
 
@@ -341,10 +238,7 @@ function renderCards(containerId, defs){
     card.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:flex-start;">
         <div>
-          <div class="card-title tooltip">
-            ${label} ⓘ
-            <span>${KPI_DESCRIPTIONS[label] || ''}</span>
-          </div>
+          <div class="card-title">${label}</div>
           <div class="card-value">${row[currentMonth]}</div>
         </div>
         <div class="metric-icon">
@@ -384,10 +278,7 @@ function renderArea(divId, title, keys, names){
     if(!row) return null;
     return {
       x: months,
-      y: rollingAverage(
-        months.map(m => parseValue(row[m])),
-        avgWindow
-      ),
+      y: months.map(m => parseValue(row[m])),
       type:'scatter',
       mode:'lines',
       name:names[i],
@@ -412,10 +303,7 @@ function renderBar(divId, title, keys, names){
     return {
       type:'bar',
       x: months,
-      y: rollingAverage(
-        months.map(m => parseValue(row[m])),
-        avgWindow
-      ),
+      y: months.map(m => parseValue(row[m])),
       name: names[i],      
       marker:{ color: CHART_COLORS[i % CHART_COLORS.length] + '33' }
     };
@@ -440,7 +328,7 @@ fileInput.addEventListener('change', e => {
 // ===============================
 
 const DATA_BASE_NAME = 'relatorio'; // expects files like relatorio-YYYY-MM-DD.json
-const REFRESH_INTERVAL_MS = 1 * 60 * 1000; // 1 minutes
+const REFRESH_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
 
 function todayISO(){
   const d = new Date();
@@ -470,7 +358,6 @@ function loadLatestJSON(){
         .then(data => {
           console.log('Loaded base data: relatorio.json');
           init(data);
-          initAvgToggles();
         })
         .catch(() => {
           // 3) Final fallback: embedded JSON (file:// support)
