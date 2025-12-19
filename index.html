@@ -304,6 +304,7 @@ function renderBar(divId, title, keys, names){
       x: months,
       y: months.map(m => parseValue(row[m])),
       name: names[i],
+      line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
       marker:{ color: CHART_COLORS[i % CHART_COLORS.length] + '33' }
     };
   }).filter(Boolean);
