@@ -190,15 +190,29 @@ function renderCards(containerId, defs){
   const c = document.getElementById(containerId);
   c.innerHTML = '';
 
+  const iconMap = {
+    'Receitas':'M12 3c-3 0-5 2-5 5v1h10V8c0-3-2-5-5-5zm-6 8h12l-1 9H7l-1-9z',
+    'Despesas':'M6 7c0-2 12-2 12 0s-12 2-12 0zm0 4c0-2 12-2 12 0s-12 2-12 0zm0 4c0-2 12-2 12 0s-12 2-12 0z',
+    'Saldo Mês':'M4 16l6-6 4 4 6-8',
+    'Lucro %':'M6 8h12l-1 12H7L6 8zm3 0V6a3 3 0 016 0v2',
+    'Vendas Stone':'M7 3h10v18H7zM9 7h6M9 11h6M9 15h4',
+    'Qtd Vendas Stone':'M9 3L7 21M17 3l-2 18M3 9h18M3 15h18',
+    'Ticket Médio Stone':'M3 21l6-6M9 15l6-6M15 9l4-4M7 17l2 2',
+    'Saldo Inicial Stone':'M3 7h18v10H3zM12 10a2 2 0 100 4 2 2 0 000-4',
+    'Saldo Final Unicred':'M12 3v18M6 9c2-3 10-3 12 0M8 13c2-2 6-2 8 0',
+    'Saldo Final Stone':'M12 4a8 8 0 100 16 8 8 0 000-16z',
+    'Caixinha':'M4 7h16v12H4zM10 13h4'
+  };
+
   defs.forEach(([key,label]) => {
     const row = getCat(key);
     if(!row) return;
 
     const values = months.map(m => parseValue(row[m]));
-    const idx = months.indexOf(currentMonth);
-    const current = values[idx];
-    const prev = values[idx - 1] ?? current;
-    const diff = prev ? ((current - prev) / prev) * 100 : 0;
+    const i = months.indexOf(currentMonth);
+    const cur = values[i];
+    const prev = values[i-1] ?? cur;
+    const diff = prev ? ((cur - prev) / prev) * 100 : 0;
     const up = diff >= 0;
 
     const sparkId = `spark-${containerId}-${key.replace(/[^a-zA-Z0-9]/g,'')}`;
@@ -211,12 +225,12 @@ function renderCards(containerId, defs){
           <div class="card-title">${label}</div>
           <div class="card-value">${row[currentMonth]}</div>
         </div>
+        <div class="metric-icon">
+          <svg viewBox="0 0 24 24"><path d="${iconMap[label] || ''}" /></svg>
+        </div>
       </div>
-
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-        <span class="delta ${up ? 'up' : 'down'}">
-          ${up ? '▲' : '▼'} ${Math.abs(diff).toFixed(1)}%
-        </span>
+        <span class="delta ${up ? 'up':'down'}">${up?'▲':'▼'} ${Math.abs(diff).toFixed(1)}%</span>
         <div id="${sparkId}" style="width:90px;height:32px;"></div>
       </div>
     `;
@@ -224,31 +238,21 @@ function renderCards(containerId, defs){
     c.appendChild(card);
 
     const color = up ? '#059669' : '#dc2626';
-    const fill = up
-      ? 'rgba(5,150,105,0.25)'
-      : 'rgba(220,38,38,0.25)';
+    const fill = up ? 'rgba(5,150,105,0.25)' : 'rgba(220,38,38,0.25)';
 
-    Plotly.newPlot(
-      sparkId,
-      [{
-        x: months,
-        y: values,
-        type: 'scatter',
-        mode: 'lines',
-        line: { color, width: 2 },
-        fill: 'tozeroy',
-        fillcolor: fill
-      }],
-      {
-        margin: { t:2, l:2, r:2, b:2 },
-        xaxis: { visible:false },
-        yaxis: { visible:false }
-      },
-      {
-        displayModeBar: false,
-        staticPlot: true
-      }
-    );
+    Plotly.newPlot(sparkId, [{
+      x: months,
+      y: values,
+      type: 'scatter',
+      mode: 'lines',
+      line: { color, width: 2 },
+      fill: 'tozeroy',
+      fillcolor: fill
+    }], {
+      margin:{t:2,l:2,r:2,b:2},
+      xaxis:{visible:false},
+      yaxis:{visible:false}
+    }, {displayModeBar:false,staticPlot:true});
   });
 }
 
