@@ -21,10 +21,7 @@
       cursor:pointer;
       user-select:none;
     }
-    .month-chip.active {
-      background:#059669;
-      color:#fff;
-    }
+    .month-chip.active { background:#059669; color:#fff; }
 
     .upload-btn {
       position:relative;
@@ -41,6 +38,7 @@
     }
     .upload-btn svg { width:16px; height:16px; stroke:#374151; }
     .upload-btn input { position:absolute; inset:0; opacity:0; cursor:pointer; }
+
     .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
     .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px; }
     .chart-card { height:180px; padding:12px; }
@@ -49,25 +47,15 @@
     .card-title { font-size:12px; color:#6b7280; margin-bottom:6px; }
     .card-value { font-size:26px; font-weight:700; }
 
-    /* contextual metric icon */
     .metric-icon {
       width:40px; height:40px;
       border-radius:12px;
       background:#ecfdf5;
       display:flex; align-items:center; justify-content:center;
     }
-    .metric-icon svg {
-      width:20px; height:20px;
-      stroke:#059669; fill:none; stroke-width:2;
-    }
+    .metric-icon svg { width:20px; height:20px; stroke:#059669; fill:none; stroke-width:2; }
 
-    /* delta indicator badge */
-    .delta {
-      display:inline-flex; align-items:center; gap:4px;
-      font-size:12px; font-weight:500;
-      padding:2px 8px;
-      border-radius:999px;
-    }
+    .delta { display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:500; padding:2px 8px; border-radius:999px; }
     .delta.up { background:#ecfdf5; color:#059669; }
     .delta.down { background:#fef2f2; color:#dc2626; }
 
@@ -77,6 +65,7 @@
 <body>
 <div class="container">
   <h1>Dashboard Financeiro</h1>
+
   <div class="controls">
     <div class="month-controls">
       <div>
@@ -97,363 +86,23 @@
     </label>
   </div>
 
-  <!-- TOP KPIs -->
   <div class="grid-4" id="topKPIs"></div>
 
-  <!-- AREA CHARTS -->
   <div class="grid-2">
     <div class="card chart-card"><div id="areaRevenue" class="chart-inner"></div></div>
     <div class="card chart-card"><div id="areaCosts" class="chart-inner"></div></div>
   </div>
 
-  <h2 style="font-size:14px;color:#6b7280;margin:16px 0 12px;">STONE</h2>
-  <!-- STONE KPIs -->
+  <h2>STONE</h2>
   <div class="grid-4" id="stoneKPIs"></div>
 
-  <h2 style="font-size:14px;color:#6b7280;margin:8px 0 12px;">SALDOS</h2>
-  <!-- BOTTOM KPIs -->
+  <h2>SALDOS</h2>
   <div class="grid-4" id="bottomKPIs"></div>
+</div>
 
-<!-- Embedded fallback JSON for file:// usage -->
+<!-- Embedded JSON so the dashboard works 100% offline (file://) -->
 <script id="preloaded-json" type="application/json">
-[
-{
-  "Categoria": "DIAS TRABALHADOS",
-  "JULHO": 23,
-  "AGOSTO": 21,
-  "SETEMBRO": 21,
-  "OUTUBRO": 23,
-  "NOVEMBRO": 19
-},
-{
-  "Categoria": "FATURAMENTO (NFSe)",
-  "JULHO": "R$ 25.612,00",
-  "AGOSTO": "R$ 63.975,00",
-  "SETEMBRO": "R$ 42.592,00",
-  "OUTUBRO": "R$ 47.724,00",
-  "NOVEMBRO": "R$ 101.705,00"
-},
-{
-  "Categoria": "SALDO INICIAL UNICRED",
-  "JULHO": "R$ 73.883,71",
-  "AGOSTO": "R$ 73.883,71",
-  "SETEMBRO": "R$ 115.611,01",
-  "OUTUBRO": "R$ 97.428,50",
-  "NOVEMBRO": "R$ 70.719,96"
-},
-{
-  "Categoria": "SALDO INICIAL STONE",
-  "JULHO": "R$ 86.509,00",
-  "AGOSTO": "R$ 86.509,00",
-  "SETEMBRO": "R$ 115.231,02",
-  "OUTUBRO": "R$ 211.881,67",
-  "NOVEMBRO": "R$ 281.762,00"
-},
-{
-  "Categoria": "SALDO INICIAL CAIXINHA",
-  "JULHO": "R$ 0,00",
-  "AGOSTO": "R$ 0,00",
-  "SETEMBRO": "R$ 0,00",
-  "OUTUBRO": "R$ 0,00",
-  "NOVEMBRO": "R$ 0,00"
-},
-{
-  "Categoria": "RECEITAS",
-  "JULHO": "R$ 273.877,03",
-  "AGOSTO": "R$ 240.666,09",
-  "SETEMBRO": "R$ 258.017,10",
-  "OUTUBRO": "R$ 269.683,31",
-  "NOVEMBRO": "R$ 226.556,79"
-},
-{
-  "Categoria": "DESPESAS",
-  "JULHO": "R$ 208.900,53",
-  "AGOSTO": "R$ 170.216,67",
-  "SETEMBRO": "R$ 179.548,96",
-  "OUTUBRO": "R$ 223.011,95",
-  "NOVEMBRO": "R$ 180.527,28"
-},
-{
-  "Categoria": "SALDO DO PERÍODO",
-  "JULHO": "R$ 64.976,50",
-  "AGOSTO": "R$ 70.449,42",
-  "SETEMBRO": "R$ 78.468,14",
-  "OUTUBRO": "R$ 46.671,36",
-  "NOVEMBRO": "R$ 46.029,51"
-},
-{
-  "Categoria": "SALDO FINAL UNICRED",
-  "JULHO": "R$ 73.883,71",
-  "AGOSTO": "R$ 115.611,01",
-  "SETEMBRO": "R$ 97.428,50",
-  "OUTUBRO": "R$ 70.719,96",
-  "NOVEMBRO": "R$ 96.904,93"
-},
-{
-  "Categoria": "SALDO FINAL STONE",
-  "JULHO": "R$ 86.509,00",
-  "AGOSTO": "R$ 115.231,02",
-  "SETEMBRO": "R$ 211.881,67",
-  "OUTUBRO": "R$ 281.762,00",
-  "NOVEMBRO": "R$ 301.616,61"
-},
-{
-  "Categoria": "CAIXINHA",
-  "JULHO": "R$ 0,00",
-  "AGOSTO": "R$ 0,00",
-  "SETEMBRO": "R$ 0,00",
-  "OUTUBRO": "R$ 0,00",
-  "NOVEMBRO": "R$ 0,00"
-},
-{
-  "Categoria": "LUCRO LIQUIDO",
-  "JULHO": "23,72%",
-  "AGOSTO": "29,27%",
-  "SETEMBRO": "30,41%",
-  "OUTUBRO": "17,31%",
-  "NOVEMBRO": "20,32%"
-},
-{
-  "Categoria": "Nº ATENDIMENTOS",
-  "JULHO": 269,
-  "AGOSTO": 277,
-  "SETEMBRO": 269,
-  "OUTUBRO": 277,
-  "NOVEMBRO": 269
-},
-{
-  "Categoria": "HOMENS",
-  "JULHO": 169,
-  "AGOSTO": 165,
-  "SETEMBRO": 169,
-  "OUTUBRO": 165,
-  "NOVEMBRO": 169
-},
-{
-  "Categoria": "MULHERES",
-  "JULHO": 100,
-  "AGOSTO": 112,
-  "SETEMBRO": 100,
-  "OUTUBRO": 112,
-  "NOVEMBRO": 100
-},
-{
-  "Categoria": "VENDA TOTAL - STONE",
-  "JULHO": "R$ 182.200,00",
-  "AGOSTO": "R$ 211.487,00",
-  "SETEMBRO": "R$ 270.917,00",
-  "OUTUBRO": "R$ 247.387,00",
-  "NOVEMBRO": "R$ 258.398,00"
-},
-{
-  "Categoria": "NÚMERO VENDAS - STONE",
-  "JULHO": 140,
-  "AGOSTO": 175,
-  "SETEMBRO": 187,
-  "OUTUBRO": 194,
-  "NOVEMBRO": 206
-},
-{
-  "Categoria": "TICKET MÉDIO - STONE",
-  "JULHO": "R$ 1.301,43",
-  "AGOSTO": "R$ 1.208,50",
-  "SETEMBRO": "R$ 1.448,75",
-  "OUTUBRO": "R$ 1.275,19",
-  "NOVEMBRO": "R$ 1.254,36"
-},
-{
-  "Categoria": "FATURAMENTO TOTAL",
-  "JULHO": "R$ 273.877,03",
-  "AGOSTO": "R$ 240.666,09",
-  "SETEMBRO": "R$ 258.017,10",
-  "OUTUBRO": "R$ 269.683,31",
-  "NOVEMBRO": "R$ 226.556,79"
-},
-{
-  "Categoria": "FATURAMENTO DE CONSULTAS",
-  "JULHO": "R$ 0,00",
-  "AGOSTO": "R$ 0,00",
-  "SETEMBRO": "R$ 0,00",
-  "OUTUBRO": "R$ 0,00",
-  "NOVEMBRO": "R$ 44.885,43"
-},
-{
-  "Categoria": "FATURAMENTO INJETAVEIS",
-  "JULHO": "R$ 0,00",
-  "AGOSTO": "R$ 0,00",
-  "SETEMBRO": "R$ 0,00",
-  "OUTUBRO": "R$ 0,00",
-  "NOVEMBRO": "R$ 181.671,36"
-},
-{
-  "Categoria": "DESPESA TOTAL",
-  "JULHO": "R$ 336.766,68",
-  "AGOSTO": "R$ 355.510,77",
-  "SETEMBRO": "R$ 279.095,80",
-  "OUTUBRO": "R$ 389.121,64",
-  "NOVEMBRO": "R$ 180.527,28"
-},
-{
-  "Categoria": "CUSTOS FIXOS TOTAL",
-  "JULHO": "R$ 33.785,14",
-  "AGOSTO": "R$ 34.919,83",
-  "SETEMBRO": "R$ 33.407,46",
-  "OUTUBRO": "R$ 34.836,08",
-  "NOVEMBRO": "R$ 36.068,19"
-},
-{
-  "Categoria": "ALUGUEL",
-  "JULHO": "R$ 9.781,55",
-  "AGOSTO": "R$ 9.780,84",
-  "SETEMBRO": "R$ 9.780,84",
-  "OUTUBRO": "R$ 9.777,57",
-  "NOVEMBRO": "R$ 9.776,85"
-},
-{
-  "Categoria": "CONDOMINIO",
-  "JULHO": "R$ 2.737,41",
-  "AGOSTO": "R$ 2.904,81",
-  "SETEMBRO": "R$ 2.775,04",
-  "OUTUBRO": "R$ 2.789,89",
-  "NOVEMBRO": "R$ 3.187,88"
-},
-{
-  "Categoria": "INTERNET",
-  "JULHO": "R$ 155,47",
-  "AGOSTO": "R$ 155,47",
-  "SETEMBRO": "R$ 155,47",
-  "OUTUBRO": "R$ 163,55",
-  "NOVEMBRO": "R$ 163,55"
-},
-{
-  "Categoria": "SISTEMA",
-  "JULHO": "R$ 462,60",
-  "AGOSTO": "R$ 462,60",
-  "SETEMBRO": "R$ 460,00",
-  "OUTUBRO": "R$ 460,90",
-  "NOVEMBRO": "R$ 461,80"
-},
-{
-  "Categoria": "MARKETING",
-  "JULHO": "R$ 3.989,90",
-  "AGOSTO": "R$ 3.439,90",
-  "SETEMBRO": "R$ 2.059,90",
-  "OUTUBRO": "R$ 3.467,96",
-  "NOVEMBRO": "R$ 4.301,90"
-},
-{
-  "Categoria": "FINANCEIRO",
-  "JULHO": "R$ 0,00",
-  "AGOSTO": "R$ 1.518,00",
-  "SETEMBRO": "R$ 1.518,00",
-  "OUTUBRO": "R$ 1.518,00",
-  "NOVEMBRO": "R$ 1.518,00"
-},
-{
-  "Categoria": "CONTADOR*",
-  "JULHO": "R$ 825,00",
-  "AGOSTO": "R$ 825,00",
-  "SETEMBRO": "R$ 825,00",
-  "OUTUBRO": "R$ 825,00",
-  "NOVEMBRO": "R$ 825,00"
-},
-{
-  "Categoria": "SALÁRIOS",
-  "JULHO": "R$ 10.762,74",
-  "AGOSTO": "R$ 10.762,74",
-  "SETEMBRO": "R$ 10.762,74",
-  "OUTUBRO": "R$ 10.762,74",
-  "NOVEMBRO": "R$ 10.762,74"
-},
-{
-  "Categoria": "IMPOSTOS",
-  "JULHO": "R$ 5.070,47",
-  "AGOSTO": "R$ 5.070,47",
-  "SETEMBRO": "R$ 5.070,47",
-  "OUTUBRO": "R$ 5.070,47",
-  "NOVEMBRO": "R$ 5.070,47"
-},
-{
-  "Categoria": "CUSTOS VARIÁVEIS TOTAL",
-  "JULHO": "R$ 85.883,18",
-  "AGOSTO": "R$ 76.233,38",
-  "SETEMBRO": "R$ 76.236,38",
-  "OUTUBRO": "R$ 87.372,38",
-  "NOVEMBRO": "R$ 73.410,78"
-},
-{
-  "Categoria": "INSUMOS",
-  "JULHO": "R$ 2.719,65",
-  "AGOSTO": "R$ 2.719,65",
-  "SETEMBRO": "R$ 2.719,65",
-  "OUTUBRO": "R$ 2.719,65",
-  "NOVEMBRO": "R$ 2.719,65"
-},
-{
-  "Categoria": "MEDICAMENTOS INJETÁVEIS",
-  "JULHO": "R$ 16.997,26",
-  "AGOSTO": "R$ 16.997,26",
-  "SETEMBRO": "R$ 16.997,26",
-  "OUTUBRO": "R$ 16.997,26",
-  "NOVEMBRO": "R$ 16.997,26"
-},
-{
-  "Categoria": "TIRZEPATIDA",
-  "JULHO": "R$ 41.142,80",
-  "AGOSTO": "R$ 31.200,00",
-  "SETEMBRO": "R$ 31.200,00",
-  "OUTUBRO": "R$ 41.850,00",
-  "NOVEMBRO": "R$ 27.900,00"
-},
-{
-  "Categoria": "IMPLANTES",
-  "JULHO": "R$ 1.840,00",
-  "AGOSTO": "R$ 1.840,00",
-  "SETEMBRO": "R$ 1.840,00",
-  "OUTUBRO": "R$ 1.840,00",
-  "NOVEMBRO": "R$ 1.840,00"
-},
-{
-  "Categoria": "CARDÁPIO",
-  "JULHO": "R$ 411,00",
-  "AGOSTO": "R$ 704,00",
-  "SETEMBRO": "R$ 707,00",
-  "OUTUBRO": "R$ 1.193,00",
-  "NOVEMBRO": "R$ 1.181,40"
-},
-{
-  "Categoria": "OUTROS",
-  "JULHO": "R$ 22.772,47",
-  "AGOSTO": "R$ 22.772,47",
-  "SETEMBRO": "R$ 22.772,47",
-  "OUTUBRO": "R$ 22.772,47",
-  "NOVEMBRO": "R$ 22.772,47"
-},
-{
-  "Categoria": "Custos Socio Total",
-  "JULHO": "R$ 65.607,59",
-  "AGOSTO": "R$ 84.062,09",
-  "SETEMBRO": "R$ 46.607,79",
-  "OUTUBRO": "R$ 89.770,40",
-  "NOVEMBRO": "R$ 71.048,31"
-},
-{
-  "Categoria": "RETIRADA SOCIO",
-  "JULHO": "R$ 50.000,00",
-  "AGOSTO": "R$ 71.030,00",
-  "SETEMBRO": "R$ 31.220,00",
-  "OUTUBRO": "R$ 74.750,00",
-  "NOVEMBRO": "R$ 58.100,00"
-},
-{
-  "Categoria": "DESPESAS PESSOAIS - SOCIO",
-  "JULHO": "R$ 15.607,59",
-  "AGOSTO": "R$ 13.032,09",
-  "SETEMBRO": "R$ 15.387,79",
-  "OUTUBRO": "R$ 15.020,40",
-  "NOVEMBRO": "R$ 12.948,31"
-}
-]
+PASTE_YOUR_JSON_HERE
 </script>
 
 <script>
@@ -473,10 +122,11 @@ function parseValue(v){
 function getCat(name){ return raw.find(r => r.Categoria === name); }
 
 function init(json){
-  raw = json;
+  raw = json || [];
+  if(!raw.length) return;
   const sample = raw[0];
   months = Object.keys(sample).filter(k => k !== 'Categoria');
-  currentMonth = months[months.length - 1]; // latest month
+  currentMonth = months[months.length - 1];
   populateMonths();
   render();
 }
@@ -484,7 +134,6 @@ function init(json){
 function populateMonths(){
   const sel = document.getElementById('monthSelect');
   const quick = document.getElementById('quickMonths');
-
   sel.innerHTML = '';
   quick.innerHTML = '';
 
@@ -495,24 +144,15 @@ function populateMonths(){
     sel.appendChild(o);
   });
 
-  // last 3 months as quick chips
   months.slice(-3).forEach(m => {
     const chip = document.createElement('div');
     chip.className = 'month-chip' + (m === currentMonth ? ' active' : '');
     chip.textContent = m;
-    chip.onclick = () => {
-      currentMonth = m;
-      populateMonths();
-      render();
-    };
+    chip.onclick = () => { currentMonth = m; populateMonths(); render(); };
     quick.appendChild(chip);
   });
 
-  sel.onchange = e => {
-    currentMonth = e.target.value;
-    populateMonths();
-    render();
-  };
+  sel.onchange = e => { currentMonth = e.target.value; populateMonths(); render(); };
 }
 
 function render(){
@@ -524,13 +164,11 @@ function render(){
   ]);
 
   renderArea('areaRevenue','Faturamento',[
-    'FATURAMENTO DE CONSULTAS',
-    'FATURAMENTO INJETAVEIS'
+    'FATURAMENTO DE CONSULTAS','FATURAMENTO INJETAVEIS'
   ], ['Consultas','Injetáveis']);
 
   renderArea('areaCosts','Custos',[
-    'CUSTOS FIXOS TOTAL',
-    'CUSTOS VARIÁVEIS TOTAL'
+    'CUSTOS FIXOS TOTAL','CUSTOS VARIÁVEIS TOTAL'
   ], ['Fixos','Variáveis']);
 
   renderCards('stoneKPIs', [
@@ -550,90 +188,21 @@ function render(){
 
 function renderCards(containerId, defs){
   const c = document.getElementById(containerId); c.innerHTML = '';
-
-  const iconMap = {
-    // Money bag
-    'Receitas':'M12 3c-3 0-5 2-5 5v1h10V8c0-3-2-5-5-5zm-6 8h12l-1 9H7l-1-9z',
-
-    // Coin pile
-    'Despesas':'M6 7c0-2 12-2 12 0s-12 2-12 0zm0 4c0-2 12-2 12 0s-12 2-12 0zm0 4c0-2 12-2 12 0s-12 2-12 0z',
-
-    // Trend line up
-    'Saldo Mês':'M4 16l6-6 4 4 6-8',
-
-    // Shopping bag
-    'Lucro %':'M6 8h12l-1 12H7L6 8zm3 0V6a3 3 0 016 0v2',
-
-    // Sales (receipt)
-    'Vendas Stone':'M7 3h10v18H7zM9 7h6M9 11h6M9 15h4',
-
-    // Hashtag
-    'Qtd Vendas Stone':'M9 3L7 21M17 3l-2 18M3 9h18M3 15h18',
-
-    // Syringe
-    'Ticket Médio Stone':'M3 21l6-6M9 15l6-6M15 9l4-4M7 17l2 2',
-
-    // Cash / banknote
-    'Saldo Inicial Stone':'M3 7h18v10H3zM12 10a2 2 0 100 4 2 2 0 000-4',
-
-    // Unicred (tree-like symbol approximation)
-    'Saldo Final Unicred':'M12 3v18M6 9c2-3 10-3 12 0M8 13c2-2 6-2 8 0',
-
-    // Stone Pagamentos (circle)
-    'Saldo Final Stone':'M12 4a8 8 0 100 16 8 8 0 000-16z',
-
-    // Safe / box
-    'Caixinha':'M4 7h16v12H4zM10 13h4'
-  };
-
   defs.forEach(([key,label]) => {
-    const row = getCat(key);
-    if(!row) return;
-
+    const row = getCat(key); if(!row) return;
     const values = months.map(m => parseValue(row[m]));
-    const currentIndex = months.indexOf(currentMonth);
-    const currentVal = values[currentIndex];
-    const prevVal = values[currentIndex - 1] ?? currentVal;
-    const diff = prevVal !== 0 ? ((currentVal - prevVal) / prevVal) * 100 : 0;
-    const trendUp = diff >= 0;
+    const i = months.indexOf(currentMonth);
+    const cur = values[i]; const prev = values[i-1] ?? cur;
+    const diff = prev ? ((cur - prev) / prev) * 100 : 0;
+    const up = diff >= 0;
 
     const card = document.createElement('div'); card.className='card';
     card.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-        <div>
-          <div class='card-title'>${label}</div>
-          <div class='card-value'>${row[currentMonth]}</div>
-        </div>
-        <div class="metric-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="${iconMap[label] || ''}" />
-          </svg>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
-        <span class="delta ${trendUp ? 'up' : 'down'}">
-          ${trendUp ? '▲' : '▼'} ${Math.abs(diff).toFixed(1)}%
-        </span>
-        <div id="spark-${containerId}-${key}" style="width:80px;height:30px;"></div>
-      </div>
+      <div class='card-title'>${label}</div>
+      <div class='card-value'>${row[currentMonth]}</div>
+      <span class='delta ${up ? 'up':'down'}'>${up?'▲':'▼'} ${Math.abs(diff).toFixed(1)}%</span>
     `;
     c.appendChild(card);
-
-    const sparkColor = trendUp ? '#059669' : '#dc2626';
-
-    Plotly.newPlot(`spark-${containerId}-${key}`, [{
-      x: months,
-      y: values,
-      type: 'scatter',
-      mode: 'lines',
-      line: { color: sparkColor, width: 2 },
-      fill: 'tozeroy',
-      fillcolor: trendUp ? 'rgba(5,150,105,0.25)' : 'rgba(220,38,38,0.25)'
-    }], {
-      margin:{t:2,l:2,r:2,b:2},
-      xaxis:{visible:false},
-      yaxis:{visible:false}
-    }, {displayModeBar:false,staticPlot:true});
   });
 }
 
@@ -643,23 +212,19 @@ function renderArea(divId, title, keys, names){
     return {
       x: months,
       y: months.map(m => parseValue(row[m])),
-      type: 'scatter',
-      mode: 'lines',
-      name: names[i],
-      stackgroup: 'one',        // enables true stacked area
-      fill: i === 0 ? 'tozeroy' : 'tonexty' // stack without overlap
+      type:'scatter',
+      mode:'lines',
+      name:names[i],
+      stackgroup:'one',
+      fill: i===0 ? 'tozeroy' : 'tonexty'
     };
   });
 
   Plotly.newPlot(divId, traces, {
     title,
-    autosize:true,
     margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h', y:-0.25}
-  }, {
-    responsive:true,
-    displayModeBar:false
-  });
+    legend:{orientation:'h',y:-0.25}
+  }, {responsive:true,displayModeBar:false});
 }
 
 fileInput.addEventListener('change', e => {
@@ -668,24 +233,13 @@ fileInput.addEventListener('change', e => {
   r.readAsText(e.target.files[0]);
 });
 
-// expects array-based JSON structure
-// preload default JSON data
-fetch('csvjson.json')
-  .then(r => r.json())
-  .then(data => init(data))
-  .catch(() => {
-    // file:// fallback using embedded JSON
-    const embedded = document.getElementById('preloaded-json');
-    if (embedded && embedded.textContent.trim()) {
-      try {
-        init(JSON.parse(embedded.textContent));
-      } catch (e) {
-        init([]);
-      }
-    } else {
-      init([]);
-    }
-  });
+// Always initialize from embedded JSON so it works locally without fetch
+try {
+  const embedded = document.getElementById('preloaded-json').textContent.trim();
+  if(embedded && !embedded.includes('PASTE_YOUR_JSON_HERE')){
+    init(JSON.parse(embedded));
+  }
+} catch(e) {}
 </script>
 </body>
 </html>
