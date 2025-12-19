@@ -151,6 +151,22 @@ let raw = [];
 let months = [];
 let currentMonth = '';
 
+// Map full month names to short forms
+const monthMap = {
+  'JANEIRO': 'JAN',
+  'FEVEREIRO': 'FEV',
+  'MARÇO': 'MAR',
+  'ABRIL': 'ABR',
+  'MAIO': 'MAI',
+  'JUNHO': 'JUN',
+  'JULHO': 'JUL',
+  'AGOSTO': 'AGO',
+  'SETEMBRO': 'SET',
+  'OUTUBRO': 'OUT',
+  'NOVEMBRO': 'NOV',
+  'DEZEMBRO': 'DEZ'
+};
+
 function parseValue(v){
   if(typeof v === 'number') return v;
   if(typeof v === 'string'){
@@ -159,6 +175,26 @@ function parseValue(v){
   }
   return 0;
 }
+
+// Shorten month but keep the year (e.g., NOVEMBRO/25 → NOV/25)
+function shortenMonthWithYear(monthStr){
+  for(const [full, short] of Object.entries(monthMap)){
+    if(monthStr.includes(full)){
+      // Extract the year part if present (e.g., /25)
+      const yearMatch = monthStr.match(/\/\d{2,4}$/);
+      const yearPart = yearMatch ? yearMatch[0] : '';
+      return short + yearPart;
+    }
+  }
+  return monthStr; // leave unchanged if no match
+}
+
+// Example usage: update the months array
+function updateMonthsArray(){
+  months = months.map(m => shortenMonthWithYear(m));
+  Logger.log(months);
+}
+
 
 const formatBRL = v =>
   v.toLocaleString('pt-BR', {
