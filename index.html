@@ -364,7 +364,7 @@ function renderCards(containerId, defs){
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
         <span class="delta ${deltaClass}">${arrow} ${diff.toFixed(1)}%</span>
-        <div id="${sparkId}" style="width:50px;height:32px;"></div>
+        <div id="${sparkId}" style="width:90px;height:32px;"></div>
       </div>
     `;
 
@@ -412,7 +412,7 @@ function renderArea(divId, title, keys, names){
   Plotly.newPlot(divId, traces, {
     title,
     margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h',y:1}
+    legend:{orientation:'h',y:1.25}
   }, {responsive:true,displayModeBar:false});
 }
 
@@ -436,7 +436,7 @@ function renderBar(divId, title, keys, names){
     title,
     barmode:'group',
     margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h',y:1}
+    legend:{orientation:'h',y:1.25}
   }, {responsive:true,displayModeBar:false});
 }
 
