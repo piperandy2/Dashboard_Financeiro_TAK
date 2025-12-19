@@ -11,7 +11,7 @@
     "FEVEREIRO/26": 21,
     "MARÇO/26": "23",
     "ABRIL/26": "19",
-    "JUNHO/26": "21"
+    "MAIO/26": "21"
   },
   {
     "Categoria": "FATURAMENTO (NFSe)",
@@ -25,7 +25,7 @@
     "FEVEREIRO/26": 42592,
     "MARÇO/26": 47724,
     "ABRIL/26": 101705,
-    "JUNHO/26": 101705
+    "MAIO/26": 101705
   },
   {
     "Categoria": "SALDO INICIAL UNICRED",
@@ -39,7 +39,7 @@
     "FEVEREIRO/26": 115611.01,
     "MARÇO/26": 97428.5,
     "ABRIL/26": 70719.96,
-    "JUNHO/26": 96904.93
+    "MAIO/26": 96904.93
   },
   {
     "Categoria": "SALDO INICIAL STONE",
@@ -53,7 +53,7 @@
     "FEVEREIRO/26": 115231.02,
     "MARÇO/26": 211881.67,
     "ABRIL/26": 281762,
-    "JUNHO/26": 301616.61
+    "MAIO/26": 301616.61
   },
   {
     "Categoria": "SALDO INICIAL CAIXINHA",
@@ -67,7 +67,7 @@
     "FEVEREIRO/26": 0,
     "MARÇO/26": 0,
     "ABRIL/26": 0,
-    "JUNHO/26": 0
+    "MAIO/26": 0
   },
   {
     "Categoria": "RECEITAS",
@@ -81,7 +81,7 @@
     "FEVEREIRO/26": 258017.1,
     "MARÇO/26": 269683.31,
     "ABRIL/26": 226556.79,
-    "JUNHO/26": 226556.79
+    "MAIO/26": 226556.79
   },
   {
     "Categoria": "DESPESAS",
@@ -95,7 +95,7 @@
     "FEVEREIRO/26": 179548.96,
     "MARÇO/26": 223011.95,
     "ABRIL/26": 180527.28,
-    "JUNHO/26": 180527.28
+    "MAIO/26": 180527.28
   },
   {
     "Categoria": "SALDO DO PERÍODO",
@@ -109,7 +109,7 @@
     "FEVEREIRO/26": 78468.14000000001,
     "MARÇO/26": 46671.359999999986,
     "ABRIL/26": 46029.51000000001,
-    "JUNHO/26": 46029.51000000001
+    "MAIO/26": 46029.51000000001
   },
   {
     "Categoria": "SALDO FINAL UNICRED",
@@ -123,7 +123,7 @@
     "FEVEREIRO/26": 97428.5,
     "MARÇO/26": 70719.96,
     "ABRIL/26": 96904.93,
-    "JUNHO/26": 96904.93
+    "MAIO/26": 96904.93
   },
   {
     "Categoria": "SALDO FINAL STONE",
@@ -137,7 +137,7 @@
     "FEVEREIRO/26": 211881.67,
     "MARÇO/26": 281762,
     "ABRIL/26": 301616.61,
-    "JUNHO/26": 301616.61
+    "MAIO/26": 301616.61
   },
   {
     "Categoria": "CAIXINHA",
@@ -151,7 +151,7 @@
     "FEVEREIRO/26": 0,
     "MARÇO/26": 0,
     "ABRIL/26": 0,
-    "JUNHO/26": 0
+    "MAIO/26": 0
   },
   {
     "Categoria": "LUCRO LIQUIDO %",
@@ -165,7 +165,7 @@
     "FEVEREIRO/26": 0.3041199207339359,
     "MARÇO/26": 0.17305987530336966,
     "ABRIL/26": 0.20316985423389874,
-    "JUNHO/26": 0.20316985423389874
+    "MAIO/26": 0.20316985423389874
   },
   {
     "Categoria": "Nº ATENDIMENTOS",
@@ -179,7 +179,7 @@
     "FEVEREIRO/26": 239,
     "MARÇO/26": 277,
     "ABRIL/26": 269,
-    "JUNHO/26": 269
+    "MAIO/26": 269
   },
   {
     "Categoria": "HOMENS",
@@ -193,7 +193,7 @@
     "FEVEREIRO/26": 169,
     "MARÇO/26": 165,
     "ABRIL/26": 169,
-    "JUNHO/26": 169
+    "MAIO/26": 169
   },
   {
     "Categoria": "MULHERES",
@@ -207,7 +207,7 @@
     "FEVEREIRO/26": 70,
     "MARÇO/26": 112,
     "ABRIL/26": 100,
-    "JUNHO/26": 100
+    "MAIO/26": 100
   },
   {
     "Categoria": "VENDA TOTAL - STONE",
@@ -221,7 +221,7 @@
     "FEVEREIRO/26": 270917,
     "MARÇO/26": 247387,
     "ABRIL/26": 258398,
-    "JUNHO/26": 258398
+    "MAIO/26": 258398
   },
   {
     "Categoria": "NÚMERO VENDAS - STONE",
@@ -235,7 +235,7 @@
     "FEVEREIRO/26": 187,
     "MARÇO/26": 194,
     "ABRIL/26": 206,
-    "JUNHO/26": 206
+    "MAIO/26": 206
   },
   {
     "Categoria": "TICKET MÉDIO - STONE",
@@ -249,7 +249,7 @@
     "FEVEREIRO/26": 1448.7540106951872,
     "MARÇO/26": 1275.1907216494844,
     "ABRIL/26": 1254.3592233009708,
-    "JUNHO/26": 1254.3592233009708
+    "MAIO/26": 1254.3592233009708
   },
   {
     "Categoria": "FATURAMENTO TOTAL",
@@ -263,7 +263,7 @@
     "FEVEREIRO/26": 258017.1,
     "MARÇO/26": 269683.31,
     "ABRIL/26": 226556.79,
-    "JUNHO/26": 226556.79
+    "MAIO/26": 226556.79
   },
   {
     "Categoria": "FATURAMENTO DE CONSULTAS",
@@ -277,7 +277,7 @@
     "FEVEREIRO/26": 0,
     "MARÇO/26": 0,
     "ABRIL/26": 44885.43,
-    "JUNHO/26": 44885.43
+    "MAIO/26": 44885.43
   },
   {
     "Categoria": "FATURAMENTO INJETAVEIS",
@@ -291,7 +291,7 @@
     "FEVEREIRO/26": 0,
     "MARÇO/26": 0,
     "ABRIL/26": 181671.36000000002,
-    "JUNHO/26": 181671.36000000002
+    "MAIO/26": 181671.36000000002
   },
   {
     "Categoria": "DESPESA TOTAL",
@@ -305,7 +305,7 @@
     "FEVEREIRO/26": 279095.8,
     "MARÇO/26": 389121.64,
     "ABRIL/26": 180527.28,
-    "JUNHO/26": 180527.28
+    "MAIO/26": 180527.28
   },
   {
     "Categoria": "CUSTOS FIXOS TOTAL",
@@ -319,7 +319,7 @@
     "FEVEREIRO/26": 33407.46,
     "MARÇO/26": 34836.08,
     "ABRIL/26": 36068.189999999995,
-    "JUNHO/26": 36068.189999999995
+    "MAIO/26": 36068.189999999995
   },
   {
     "Categoria": "ALUGUEL",
@@ -333,7 +333,7 @@
     "FEVEREIRO/26": 9780.84,
     "MARÇO/26": 9777.57,
     "ABRIL/26": 9776.85,
-    "JUNHO/26": 9776.85
+    "MAIO/26": 9776.85
   },
   {
     "Categoria": "CONDOMINIO",
@@ -347,7 +347,7 @@
     "FEVEREIRO/26": 2775.04,
     "MARÇO/26": 2789.89,
     "ABRIL/26": 3187.88,
-    "JUNHO/26": 3187.88
+    "MAIO/26": 3187.88
   },
   {
     "Categoria": "INTERNET",
@@ -361,7 +361,7 @@
     "FEVEREIRO/26": 155.47,
     "MARÇO/26": 163.55,
     "ABRIL/26": 163.55,
-    "JUNHO/26": 163.55
+    "MAIO/26": 163.55
   },
   {
     "Categoria": "SISTEMA",
@@ -375,7 +375,7 @@
     "FEVEREIRO/26": 460,
     "MARÇO/26": 460.9,
     "ABRIL/26": 461.8,
-    "JUNHO/26": 461.8
+    "MAIO/26": 461.8
   },
   {
     "Categoria": "MARKETING",
@@ -389,7 +389,7 @@
     "FEVEREIRO/26": 2059.9,
     "MARÇO/26": 3467.96,
     "ABRIL/26": 4301.9,
-    "JUNHO/26": 4301.9
+    "MAIO/26": 4301.9
   },
   {
     "Categoria": "FINANCEIRO",
@@ -403,7 +403,7 @@
     "FEVEREIRO/26": 1518,
     "MARÇO/26": 1518,
     "ABRIL/26": 1518,
-    "JUNHO/26": 1518
+    "MAIO/26": 1518
   },
   {
     "Categoria": "CONTADOR*",
@@ -417,7 +417,7 @@
     "FEVEREIRO/26": 825,
     "MARÇO/26": 825,
     "ABRIL/26": 825,
-    "JUNHO/26": 825
+    "MAIO/26": 825
   },
   {
     "Categoria": "SALÁRIOS",
@@ -431,7 +431,7 @@
     "FEVEREIRO/26": 10762.74,
     "MARÇO/26": 10762.74,
     "ABRIL/26": 10762.74,
-    "JUNHO/26": 10762.74
+    "MAIO/26": 10762.74
   },
   {
     "Categoria": "IMPOSTOS",
@@ -445,7 +445,7 @@
     "FEVEREIRO/26": 5070.47,
     "MARÇO/26": 5070.47,
     "ABRIL/26": 5070.47,
-    "JUNHO/26": 5070.47
+    "MAIO/26": 5070.47
   },
   {
     "Categoria": "CUSTOS VARIÁVEIS TOTAL",
@@ -459,7 +459,7 @@
     "FEVEREIRO/26": 76236.38,
     "MARÇO/26": 87372.38,
     "ABRIL/26": 73410.78,
-    "JUNHO/26": 73410.78
+    "MAIO/26": 73410.78
   },
   {
     "Categoria": "INSUMOS",
@@ -473,7 +473,7 @@
     "FEVEREIRO/26": 2719.65,
     "MARÇO/26": 2719.65,
     "ABRIL/26": 2719.65,
-    "JUNHO/26": 2719.65
+    "MAIO/26": 2719.65
   },
   {
     "Categoria": "MEDICAMENTOS INJETÁVEIS",
@@ -487,7 +487,7 @@
     "FEVEREIRO/26": 16997.26,
     "MARÇO/26": 16997.26,
     "ABRIL/26": 16997.26,
-    "JUNHO/26": 16997.26
+    "MAIO/26": 16997.26
   },
   {
     "Categoria": "TIRZEPATIDA",
@@ -501,7 +501,7 @@
     "FEVEREIRO/26": 31200,
     "MARÇO/26": 41850,
     "ABRIL/26": 27900,
-    "JUNHO/26": 27900
+    "MAIO/26": 27900
   },
   {
     "Categoria": "IMPLANTES",
@@ -515,7 +515,7 @@
     "FEVEREIRO/26": 1840,
     "MARÇO/26": 1840,
     "ABRIL/26": 1840,
-    "JUNHO/26": 1840
+    "MAIO/26": 1840
   },
   {
     "Categoria": "CARDÁPIO",
@@ -529,7 +529,7 @@
     "FEVEREIRO/26": 707,
     "MARÇO/26": 1193,
     "ABRIL/26": 1181.4,
-    "JUNHO/26": 1181.4
+    "MAIO/26": 1181.4
   },
   {
     "Categoria": "OUTROS",
@@ -543,7 +543,7 @@
     "FEVEREIRO/26": 22772.47,
     "MARÇO/26": 22772.47,
     "ABRIL/26": 22772.47,
-    "JUNHO/26": 22772.47
+    "MAIO/26": 22772.47
   },
   {
     "Categoria": "Custos Socio Total",
@@ -557,7 +557,7 @@
     "FEVEREIRO/26": 46607.79,
     "MARÇO/26": 89770.4,
     "ABRIL/26": 71048.31,
-    "JUNHO/26": 71048.31
+    "MAIO/26": 71048.31
   },
   {
     "Categoria": "RETIRADA SOCIO",
@@ -571,7 +571,7 @@
     "FEVEREIRO/26": 31220,
     "MARÇO/26": 74750,
     "ABRIL/26": 58100,
-    "JUNHO/26": 58100
+    "MAIO/26": 58100
   },
   {
     "Categoria": "DESPESAS PESSOAIS - SOCIO",
@@ -585,6 +585,6 @@
     "FEVEREIRO/26": 15387.79,
     "MARÇO/26": 15020.4,
     "ABRIL/26": 12948.31,
-    "JUNHO/26": 12948.31
+    "MAIO/26": 12948.31
   }
 ]
