@@ -364,7 +364,7 @@ function renderCards(containerId, defs){
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
         <span class="delta ${deltaClass}">${arrow} ${diff.toFixed(1)}%</span>
-        <div id="${sparkId}" style="width:90px;height:32px;"></div>
+        <div id="${sparkId}" style="width:50px;height:32px;"></div>
       </div>
     `;
 
@@ -393,19 +393,26 @@ function renderArea(divId, title, keys, names){
   const traces = keys.map((k,i) => {
     const row = getCat(k);
     if(!row) return null;
+
+    // Calculate y-values
+    const yValues = rollingAverage(
+      months.map(m => parseValue(row[m])),
+      avgWindow
+    );
+
     return {
       x: months,
-      y: rollingAverage(
-        months.map(m => parseValue(row[m])),
-        avgWindow
-      ),
+      y: yValues,
       type:'scatter',
-      mode:'lines',
+      mode:'lines+text', // <-- Add text mode
       name:names[i],
       stackgroup:'one',
       fill: i===0 ? 'tozeroy' : 'tonexty',
       line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
-      fillcolor: CHART_COLORS[i % CHART_COLORS.length] + '33'
+      fillcolor: CHART_COLORS[i % CHART_COLORS.length] + '33',
+      text: yValues.map(v => v),       // <-- Add labels
+      textposition: 'top center',      // <-- Position labels above points
+      textfont: { size: 12, color: CHART_COLORS[i % CHART_COLORS.length] }
     };
   }).filter(Boolean);
 
@@ -415,6 +422,7 @@ function renderArea(divId, title, keys, names){
     legend:{orientation:'h',y:-0.25}
   }, {responsive:true,displayModeBar:false});
 }
+
 
 function renderBar(divId, title, keys, names){
   const traces = keys.map((k,i) => {
