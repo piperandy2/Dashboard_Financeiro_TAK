@@ -176,11 +176,11 @@ function render(){
     'CUSTOS FIXOS TOTAL','CUSTOS VARIÁVEIS TOTAL'
   ], ['Fixos','Variáveis']);
 
-  renderArea('areaSocios','Sócios',[
+  renderBar('areaSocios','Sócios',[
     'RETIRADA SOCIO','DESPESAS PESSOAIS - SOCIO'
-  ], ['Retirada','Despesas']);
+  ], ['Retirada','Despesas'], ['#059669','#dc2626']);
 
-  renderArea('areaAtendimentos','Atendimentos',[
+  renderBar('areaAtendimentos','Atendimentos',[
     'HOMENS','MULHERES'
   ], ['Homens','Mulheres'], ['#2563eb','#f97316']);
 
@@ -271,6 +271,7 @@ function renderCards(containerId, defs){
 function renderArea(divId, title, keys, names){
   const traces = keys.map((k,i) => {
     const row = getCat(k);
+    if(!row) return null;
     return {
       x: months,
       y: months.map(m => parseValue(row[m])),
@@ -280,10 +281,31 @@ function renderArea(divId, title, keys, names){
       stackgroup:'one',
       fill: i===0 ? 'tozeroy' : 'tonexty'
     };
-  });
+  }).filter(Boolean);
 
   Plotly.newPlot(divId, traces, {
     title,
+    margin:{t:40,l:40,r:20,b:30},
+    legend:{orientation:'h',y:-0.25}
+  }, {responsive:true,displayModeBar:false});
+}
+
+function renderBar(divId, title, keys, names, colors){
+  const traces = keys.map((k,i) => {
+    const row = getCat(k);
+    if(!row) return null;
+    return {
+      type:'bar',
+      x: months,
+      y: months.map(m => parseValue(row[m])),
+      name: names[i],
+      marker: colors ? { color: colors[i] } : undefined
+    };
+  }).filter(Boolean);
+
+  Plotly.newPlot(divId, traces, {
+    title,
+    barmode:'stack',
     margin:{t:40,l:40,r:20,b:30},
     legend:{orientation:'h',y:-0.25}
   }, {responsive:true,displayModeBar:false});
