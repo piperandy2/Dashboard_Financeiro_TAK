@@ -6,7 +6,7 @@
     "SETEMBRO": 21,
     "OUTUBRO": "23",
     "NOVEMBRO": "19",
-    "December": "21"
+    "DEZEMBRO": "21"
   },
   {
     "Categoria": "FATURAMENTO (NFSe)",
@@ -15,7 +15,7 @@
     "SETEMBRO": 42592,
     "OUTUBRO": 47724,
     "NOVEMBRO": 101705,
-    "December": 101705
+    "DEZEMBRO": 101705
   },
   {
     "Categoria": "SALDO INICIAL UNICRED",
@@ -24,7 +24,7 @@
     "SETEMBRO": 115611.01,
     "OUTUBRO": 97428.5,
     "NOVEMBRO": 70719.96,
-    "December": 96904.93
+    "DEZEMBRO": 96904.93
   },
   {
     "Categoria": "SALDO INICIAL STONE",
@@ -33,7 +33,7 @@
     "SETEMBRO": 115231.02,
     "OUTUBRO": 211881.67,
     "NOVEMBRO": 281762,
-    "December": 301616.61
+    "DEZEMBRO": 301616.61
   },
   {
     "Categoria": "SALDO INICIAL CAIXINHA",
@@ -42,7 +42,7 @@
     "SETEMBRO": 0,
     "OUTUBRO": 0,
     "NOVEMBRO": 0,
-    "December": 0
+    "DEZEMBRO": 0
   },
   {
     "Categoria": "RECEITAS",
@@ -51,7 +51,7 @@
     "SETEMBRO": 258017.1,
     "OUTUBRO": 269683.31,
     "NOVEMBRO": 226556.79,
-    "December": 226556.79
+    "DEZEMBRO": 226556.79
   },
   {
     "Categoria": "DESPESAS",
@@ -60,7 +60,7 @@
     "SETEMBRO": 179548.96,
     "OUTUBRO": 223011.95,
     "NOVEMBRO": 180527.28,
-    "December": 180527.28
+    "DEZEMBRO": 180527.28
   },
   {
     "Categoria": "SALDO DO PERÍODO",
@@ -69,7 +69,7 @@
     "SETEMBRO": 78468.14000000001,
     "OUTUBRO": 46671.359999999986,
     "NOVEMBRO": 46029.51000000001,
-    "December": 46029.51000000001
+    "DEZEMBRO": 46029.51000000001
   },
   {
     "Categoria": "SALDO FINAL UNICRED",
@@ -78,7 +78,7 @@
     "SETEMBRO": 97428.5,
     "OUTUBRO": 70719.96,
     "NOVEMBRO": 96904.93,
-    "December": 96904.93
+    "DEZEMBRO": 96904.93
   },
   {
     "Categoria": "SALDO FINAL STONE",
@@ -87,7 +87,7 @@
     "SETEMBRO": 211881.67,
     "OUTUBRO": 281762,
     "NOVEMBRO": 301616.61,
-    "December": 301616.61
+    "DEZEMBRO": 301616.61
   },
   {
     "Categoria": "CAIXINHA",
@@ -96,7 +96,7 @@
     "SETEMBRO": 0,
     "OUTUBRO": 0,
     "NOVEMBRO": 0,
-    "December": 0
+    "DEZEMBRO": 0
   },
   {
     "Categoria": "LUCRO LIQUIDO %",
@@ -105,7 +105,7 @@
     "SETEMBRO": 0.3041199207339359,
     "OUTUBRO": 0.17305987530336966,
     "NOVEMBRO": 0.20316985423389874,
-    "December": 0.20316985423389874
+    "DEZEMBRO": 0.20316985423389874
   },
   {
     "Categoria": "Nº ATENDIMENTOS",
@@ -114,7 +114,7 @@
     "SETEMBRO": 239,
     "OUTUBRO": 277,
     "NOVEMBRO": 269,
-    "December": 269
+    "DEZEMBRO": 269
   },
   {
     "Categoria": "HOMENS",
@@ -123,7 +123,7 @@
     "SETEMBRO": 169,
     "OUTUBRO": 165,
     "NOVEMBRO": 169,
-    "December": 169
+    "DEZEMBRO": 169
   },
   {
     "Categoria": "MULHERES",
@@ -132,7 +132,7 @@
     "SETEMBRO": 70,
     "OUTUBRO": 112,
     "NOVEMBRO": 100,
-    "December": 100
+    "DEZEMBRO": 100
   },
   {
     "Categoria": "VENDA TOTAL - STONE",
@@ -141,7 +141,7 @@
     "SETEMBRO": 270917,
     "OUTUBRO": 247387,
     "NOVEMBRO": 258398,
-    "December": 258398
+    "DEZEMBRO": 258398
   },
   {
     "Categoria": "NÚMERO VENDAS - STONE",
@@ -150,7 +150,7 @@
     "SETEMBRO": 187,
     "OUTUBRO": 194,
     "NOVEMBRO": 206,
-    "December": 206
+    "DEZEMBRO": 206
   },
   {
     "Categoria": "TICKET MÉDIO - STONE",
@@ -159,7 +159,7 @@
     "SETEMBRO": 1448.7540106951872,
     "OUTUBRO": 1275.1907216494844,
     "NOVEMBRO": 1254.3592233009708,
-    "December": 1254.3592233009708
+    "DEZEMBRO": 1254.3592233009708
   },
   {
     "Categoria": "FATURAMENTO TOTAL",
@@ -168,7 +168,7 @@
     "SETEMBRO": 258017.1,
     "OUTUBRO": 269683.31,
     "NOVEMBRO": 226556.79,
-    "December": 226556.79
+    "DEZEMBRO": 226556.79
   },
   {
     "Categoria": "FATURAMENTO DE CONSULTAS",
@@ -177,7 +177,7 @@
     "SETEMBRO": 0,
     "OUTUBRO": 0,
     "NOVEMBRO": 44885.43,
-    "December": 44885.43
+    "DEZEMBRO": 44885.43
   },
   {
     "Categoria": "FATURAMENTO INJETAVEIS",
@@ -186,7 +186,7 @@
     "SETEMBRO": 0,
     "OUTUBRO": 0,
     "NOVEMBRO": 181671.36000000002,
-    "December": 181671.36000000002
+    "DEZEMBRO": 181671.36000000002
   },
   {
     "Categoria": "DESPESA TOTAL",
@@ -195,7 +195,7 @@
     "SETEMBRO": 279095.8,
     "OUTUBRO": 389121.64,
     "NOVEMBRO": 180527.28,
-    "December": 180527.28
+    "DEZEMBRO": 180527.28
   },
   {
     "Categoria": "CUSTOS FIXOS TOTAL",
@@ -204,7 +204,7 @@
     "SETEMBRO": 33407.46,
     "OUTUBRO": 34836.08,
     "NOVEMBRO": 36068.189999999995,
-    "December": 36068.189999999995
+    "DEZEMBRO": 36068.189999999995
   },
   {
     "Categoria": "ALUGUEL",
@@ -213,7 +213,7 @@
     "SETEMBRO": 9780.84,
     "OUTUBRO": 9777.57,
     "NOVEMBRO": 9776.85,
-    "December": 9776.85
+    "DEZEMBRO": 9776.85
   },
   {
     "Categoria": "CONDOMINIO",
@@ -222,7 +222,7 @@
     "SETEMBRO": 2775.04,
     "OUTUBRO": 2789.89,
     "NOVEMBRO": 3187.88,
-    "December": 3187.88
+    "DEZEMBRO": 3187.88
   },
   {
     "Categoria": "INTERNET",
@@ -231,7 +231,7 @@
     "SETEMBRO": 155.47,
     "OUTUBRO": 163.55,
     "NOVEMBRO": 163.55,
-    "December": 163.55
+    "DEZEMBRO": 163.55
   },
   {
     "Categoria": "SISTEMA",
@@ -240,7 +240,7 @@
     "SETEMBRO": 460,
     "OUTUBRO": 460.9,
     "NOVEMBRO": 461.8,
-    "December": 461.8
+    "DEZEMBRO": 461.8
   },
   {
     "Categoria": "MARKETING",
@@ -249,7 +249,7 @@
     "SETEMBRO": 2059.9,
     "OUTUBRO": 3467.96,
     "NOVEMBRO": 4301.9,
-    "December": 4301.9
+    "DEZEMBRO": 4301.9
   },
   {
     "Categoria": "FINANCEIRO",
@@ -258,7 +258,7 @@
     "SETEMBRO": 1518,
     "OUTUBRO": 1518,
     "NOVEMBRO": 1518,
-    "December": 1518
+    "DEZEMBRO": 1518
   },
   {
     "Categoria": "CONTADOR*",
@@ -267,7 +267,7 @@
     "SETEMBRO": 825,
     "OUTUBRO": 825,
     "NOVEMBRO": 825,
-    "December": 825
+    "DEZEMBRO": 825
   },
   {
     "Categoria": "SALÁRIOS",
@@ -276,7 +276,7 @@
     "SETEMBRO": 10762.74,
     "OUTUBRO": 10762.74,
     "NOVEMBRO": 10762.74,
-    "December": 10762.74
+    "DEZEMBRO": 10762.74
   },
   {
     "Categoria": "IMPOSTOS",
@@ -285,7 +285,7 @@
     "SETEMBRO": 5070.47,
     "OUTUBRO": 5070.47,
     "NOVEMBRO": 5070.47,
-    "December": 5070.47
+    "DEZEMBRO": 5070.47
   },
   {
     "Categoria": "CUSTOS VARIÁVEIS TOTAL",
@@ -294,7 +294,7 @@
     "SETEMBRO": 76236.38,
     "OUTUBRO": 87372.38,
     "NOVEMBRO": 73410.78,
-    "December": 73410.78
+    "DEZEMBRO": 73410.78
   },
   {
     "Categoria": "INSUMOS",
@@ -303,7 +303,7 @@
     "SETEMBRO": 2719.65,
     "OUTUBRO": 2719.65,
     "NOVEMBRO": 2719.65,
-    "December": 2719.65
+    "DEZEMBRO": 2719.65
   },
   {
     "Categoria": "MEDICAMENTOS INJETÁVEIS",
@@ -312,7 +312,7 @@
     "SETEMBRO": 16997.26,
     "OUTUBRO": 16997.26,
     "NOVEMBRO": 16997.26,
-    "December": 16997.26
+    "DEZEMBRO": 16997.26
   },
   {
     "Categoria": "TIRZEPATIDA",
@@ -321,7 +321,7 @@
     "SETEMBRO": 31200,
     "OUTUBRO": 41850,
     "NOVEMBRO": 27900,
-    "December": 27900
+    "DEZEMBRO": 27900
   },
   {
     "Categoria": "IMPLANTES",
@@ -330,7 +330,7 @@
     "SETEMBRO": 1840,
     "OUTUBRO": 1840,
     "NOVEMBRO": 1840,
-    "December": 1840
+    "DEZEMBRO": 1840
   },
   {
     "Categoria": "CARDÁPIO",
@@ -339,7 +339,7 @@
     "SETEMBRO": 707,
     "OUTUBRO": 1193,
     "NOVEMBRO": 1181.4,
-    "December": 1181.4
+    "DEZEMBRO": 1181.4
   },
   {
     "Categoria": "OUTROS",
@@ -348,7 +348,7 @@
     "SETEMBRO": 22772.47,
     "OUTUBRO": 22772.47,
     "NOVEMBRO": 22772.47,
-    "December": 22772.47
+    "DEZEMBRO": 22772.47
   },
   {
     "Categoria": "Custos Socio Total",
@@ -357,7 +357,7 @@
     "SETEMBRO": 46607.79,
     "OUTUBRO": 89770.4,
     "NOVEMBRO": 71048.31,
-    "December": 71048.31
+    "DEZEMBRO": 71048.31
   },
   {
     "Categoria": "RETIRADA SOCIO",
@@ -366,7 +366,7 @@
     "SETEMBRO": 31220,
     "OUTUBRO": 74750,
     "NOVEMBRO": 58100,
-    "December": 58100
+    "DEZEMBRO": 58100
   },
   {
     "Categoria": "DESPESAS PESSOAIS - SOCIO",
@@ -375,6 +375,6 @@
     "SETEMBRO": 15387.79,
     "OUTUBRO": 15020.4,
     "NOVEMBRO": 12948.31,
-    "December": 12948.31
+    "DEZEMBRO": 12948.31
   }
 ]
