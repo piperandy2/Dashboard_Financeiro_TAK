@@ -93,6 +93,11 @@
     <div class="card chart-card"><div id="areaCosts" class="chart-inner"></div></div>
   </div>
 
+  <div class="grid-2">
+    <div class="card chart-card"><div id="areaSocios" class="chart-inner"></div></div>
+    <div class="card chart-card"><div id="areaAtendimentos" class="chart-inner"></div></div>
+  </div>
+
   <h2>STONE</h2>
   <div class="grid-4" id="stoneKPIs"></div>
 
@@ -171,11 +176,18 @@ function render(){
     'CUSTOS FIXOS TOTAL','CUSTOS VARIÁVEIS TOTAL'
   ], ['Fixos','Variáveis']);
 
+  renderArea('areaSocios','Sócios',[
+    'RETIRADA SOCIO','DESPESAS PESSOAIS - SOCIO'
+  ], ['Retirada','Despesas']);
+
+  renderArea('areaAtendimentos','Atendimentos',[
+    'HOMENS','MULHERES'
+  ], ['Homens','Mulheres'], ['#2563eb','#f97316']);
+
   renderCards('stoneKPIs', [
     ['VENDA TOTAL - STONE','Vendas Stone'],
     ['NÚMERO VENDAS - STONE','Qtd Vendas Stone'],
-    ['TICKET MÉDIO - STONE','Ticket Médio Stone'],
-    ['SALDO INICIAL STONE','Saldo Inicial Stone']
+    ['TICKET MÉDIO - STONE','Ticket Médio Stone']
   ]);
 
   renderCards('bottomKPIs', [
