@@ -402,6 +402,9 @@ function renderArea(divId, title, keys, names){
       type:'scatter',
       mode:'lines',
       name:names[i],
+      text: values.map(v => formatBRL(v)),
+      textposition: 'top center',
+      texttemplate: '%{text}',
       stackgroup:'one',
       fill: i===0 ? 'tozeroy' : 'tonexty',
       line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
@@ -427,7 +430,10 @@ function renderBar(divId, title, keys, names){
         months.map(m => parseValue(row[m])),
         avgWindow
       ),
-      name: names[i],      
+      name: label,
+      text: values.map(v => formatBRL(v)),
+      textposition: 'inside',
+      texttemplate: '%{text}',   
       marker:{ color: CHART_COLORS[i % CHART_COLORS.length] + '33' }
     };
   }).filter(Boolean);
@@ -435,6 +441,9 @@ function renderBar(divId, title, keys, names){
   Plotly.newPlot(divId, traces, {
     title,
     barmode:'group',
+    bargap: 0.25,
+    bargroupgap: 0.1,
+
     margin:{t:40,l:40,r:20,b:30},
     legend:{orientation:'h',y:-0.25}
   }, {responsive:true,displayModeBar:false});
