@@ -393,36 +393,28 @@ function renderArea(divId, title, keys, names){
   const traces = keys.map((k,i) => {
     const row = getCat(k);
     if(!row) return null;
-
-    // Calculate y-values
-    const yValues = rollingAverage(
-      months.map(m => parseValue(row[m])),
-      avgWindow
-    );
-
     return {
       x: months,
-      y: yValues,
+      y: rollingAverage(
+        months.map(m => parseValue(row[m])),
+        avgWindow
+      ),
       type:'scatter',
-      mode:'lines+text', // <-- Add text mode
+      mode:'lines',
       name:names[i],
       stackgroup:'one',
       fill: i===0 ? 'tozeroy' : 'tonexty',
       line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
-      fillcolor: CHART_COLORS[i % CHART_COLORS.length] + '33',
-      text: yValues.map(v => v),       // <-- Add labels
-      textposition: 'top center',      // <-- Position labels above points
-      textfont: { size: 12, color: CHART_COLORS[i % CHART_COLORS.length] }
+      fillcolor: CHART_COLORS[i % CHART_COLORS.length] + '33'
     };
   }).filter(Boolean);
 
   Plotly.newPlot(divId, traces, {
     title,
     margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h',y:-0.25}
+    legend:{orientation:'h',y:1}
   }, {responsive:true,displayModeBar:false});
 }
-
 
 function renderBar(divId, title, keys, names){
   const traces = keys.map((k,i) => {
@@ -444,7 +436,7 @@ function renderBar(divId, title, keys, names){
     title,
     barmode:'group',
     margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h',y:-0.25}
+    legend:{orientation:'h',y:1}
   }, {responsive:true,displayModeBar:false});
 }
 
