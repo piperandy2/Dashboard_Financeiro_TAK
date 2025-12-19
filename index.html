@@ -240,6 +240,39 @@ try {
     init(JSON.parse(embedded));
   }
 } catch(e) {}
+
+/* ===============================
+   DATA LOADING STRATEGY
+   =============================== */
+
+// 1) Try loading relatorio.json from GitHub Pages (HTTPS)
+fetch('relatorio.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Loaded data from relatorio.json');
+    init(data);
+  })
+  .catch(err => {
+    console.warn('Failed to load relatorio.json, using embedded fallback', err);
+
+    // 2) Fallback for file:// usage
+    const embedded = document.getElementById('preloaded-json');
+    if (embedded && embedded.textContent.trim()) {
+      try {
+        init(JSON.parse(embedded.textContent));
+      } catch (e) {
+        console.error('Embedded JSON failed', e);
+        init([]);
+      }
+    } else {
+      init([]);
+    }
+  });
 </script>
 </body>
 </html>
