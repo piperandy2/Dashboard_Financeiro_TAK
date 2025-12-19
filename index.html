@@ -177,6 +177,17 @@ function init(json){
   render();
 }
 
+function initAvgToggles(){
+  document.querySelectorAll('[data-avg]').forEach(btn => {
+    btn.onclick = () => {
+      avgWindow = Number(btn.dataset.avg);
+      document.querySelectorAll('[data-avg]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      render();
+    };
+  });
+}
+
 function populateMonths(){
   const sel = document.getElementById('monthSelect');
   const quick = document.getElementById('quickMonths');
@@ -456,6 +467,7 @@ function loadLatestJSON(){
         .then(data => {
           console.log('Loaded base data: relatorio.json');
           init(data);
+          initAvgToggles();
         })
         .catch(() => {
           // 3) Final fallback: embedded JSON (file:// support)
