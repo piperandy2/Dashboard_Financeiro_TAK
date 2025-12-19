@@ -93,13 +93,13 @@
     <div class="card chart-card"><div id="areaCosts" class="chart-inner"></div></div>
   </div>
 
+  <h2>STONE</h2>
+  <div class="grid-4" id="stoneKPIs"></div>
+  
   <div class="grid-2">
     <div class="card chart-card"><div id="areaSocios" class="chart-inner"></div></div>
     <div class="card chart-card"><div id="areaAtendimentos" class="chart-inner"></div></div>
   </div>
-
-  <h2>STONE</h2>
-  <div class="grid-4" id="stoneKPIs"></div>
 
   <h2>SALDOS</h2>
   <div class="grid-4" id="bottomKPIs"></div>
@@ -111,6 +111,9 @@ PASTE_YOUR_JSON_HERE
 </script>
 
 <script>
+// Shared chart color palette (kept consistent across area & bar charts)
+const CHART_COLORS = ['#2563eb', '#f97316', '#059669', '#dc2626'];
+
 let raw = [];
 let months = [];
 let currentMonth = '';
@@ -176,14 +179,6 @@ function render(){
     'CUSTOS FIXOS TOTAL','CUSTOS VARIÁVEIS TOTAL'
   ], ['Fixos','Variáveis']);
 
-  renderBar('areaSocios','Sócios',[
-    'RETIRADA SOCIO','DESPESAS PESSOAIS - SOCIO'
-  ], ['Retirada','Despesas'], ['#059669','#dc2626']);
-
-  renderBar('areaAtendimentos','Atendimentos',[
-    'HOMENS','MULHERES'
-  ], ['Homens','Mulheres'], ['#2563eb','#f97316']);
-
   renderCards('stoneKPIs', [
     ['VENDA TOTAL - STONE','Vendas Stone'],
     ['NÚMERO VENDAS - STONE','Qtd Vendas Stone'],
@@ -196,6 +191,14 @@ function render(){
     ['SALDO FINAL STONE','Saldo Final Stone'],
     ['CAIXINHA','Caixinha']
   ]);
+
+  renderBar('areaSocios','Sócios',[
+    'RETIRADA SOCIO','DESPESAS PESSOAIS - SOCIO'
+  ], ['Retirada','Despesas']);
+
+  renderBar('areaAtendimentos','Atendimentos',[
+    'HOMENS','MULHERES'
+  ], ['Homens','Mulheres']);
 }
 
 function renderCards(containerId, defs){
@@ -279,7 +282,9 @@ function renderArea(divId, title, keys, names){
       mode:'lines',
       name:names[i],
       stackgroup:'one',
-      fill: i===0 ? 'tozeroy' : 'tonexty'
+      fill: i===0 ? 'tozeroy' : 'tonexty',
+      line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
+      fillcolor: CHART_COLORS[i % CHART_COLORS.length] + '33'
     };
   }).filter(Boolean);
 
@@ -290,7 +295,7 @@ function renderArea(divId, title, keys, names){
   }, {responsive:true,displayModeBar:false});
 }
 
-function renderBar(divId, title, keys, names, colors){
+function renderBar(divId, title, keys, names){
   const traces = keys.map((k,i) => {
     const row = getCat(k);
     if(!row) return null;
@@ -299,7 +304,7 @@ function renderBar(divId, title, keys, names, colors){
       x: months,
       y: months.map(m => parseValue(row[m])),
       name: names[i],
-      marker: colors ? { color: colors[i] } : undefined
+      marker:{ color: CHART_COLORS[i % CHART_COLORS.length] + '33' }
     };
   }).filter(Boolean);
 
