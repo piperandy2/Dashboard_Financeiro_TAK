@@ -402,7 +402,6 @@ function renderArea(divId, title, keys, names){
       type:'scatter',
       mode:'lines',
       name:names[i],
-      text: values.map(v => formatBRL(v)),
       textposition: 'top center',
       texttemplate: '%{text}',
       stackgroup:'one',
@@ -431,7 +430,6 @@ function renderBar(divId, title, keys, names){
         avgWindow
       ),
       name: label,
-      text: values.map(v => formatBRL(v)),
       textposition: 'inside',
       texttemplate: '%{text}',   
       marker:{ color: CHART_COLORS[i % CHART_COLORS.length] + '33' }
