@@ -113,12 +113,6 @@ PASTE_YOUR_JSON_HERE
 <script>
 // Shared chart color palette (kept consistent across area & bar charts)
 const CHART_COLORS = ['#2563eb', '#f97316', '#059669', '#dc2626'];
-const formatBRL = v =>
-  v.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    maximumFractionDigits: 0
-  });
 
 let raw = [];
 let months = [];
@@ -133,6 +127,20 @@ function parseValue(v){
   return 0;
 }
 
+const formatBRL = v =>
+  v.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    maximumFractionDigits: 0
+  });
+
+function formatValue(label, value){
+  if (label.includes('%')) {
+    return `${value.toFixed(1)}%`;
+  }
+  return formatBRL(value);
+}
+  
 function getCat(name){ return raw.find(r => r.Categoria === name); }
 
 function init(json){
@@ -244,7 +252,7 @@ function renderCards(containerId, defs){
       <div style="display:flex;justify-content:space-between;align-items:flex-start;">
         <div>
           <div class="card-title">${label}</div>
-          <div class="card-value">${row[currentMonth]}</div>
+          <div class="card-value">${formatValue(label, cur)}</div>
         </div>
         <div class="metric-icon">
           <svg viewBox="0 0 24 24"><path d="${iconMap[label] || ''}" /></svg>
