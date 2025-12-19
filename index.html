@@ -113,6 +113,12 @@ PASTE_YOUR_JSON_HERE
 <script>
 // Shared chart color palette (kept consistent across area & bar charts)
 const CHART_COLORS = ['#2563eb', '#f97316', '#059669', '#dc2626'];
+const formatBRL = v =>
+  v.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    maximumFractionDigits: 0
+  });
 
 let raw = [];
 let months = [];
@@ -281,6 +287,7 @@ function renderArea(divId, title, keys, names){
       type:'scatter',
       mode:'lines',
       name:names[i],
+      hovertemplate: '%{y:,.0f} <extra></extra>',
       stackgroup:'one',
       fill: i===0 ? 'tozeroy' : 'tonexty',
       line:{ color: CHART_COLORS[i % CHART_COLORS.length], width:2 },
@@ -290,9 +297,15 @@ function renderArea(divId, title, keys, names){
 
   Plotly.newPlot(divId, traces, {
     title,
-    margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h',y:-0.25}
-  }, {responsive:true,displayModeBar:false});
+    margin:{t:40,l:60,r:20,b:30},
+    legend:{orientation:'h',y:-0.25},
+    yaxis: {
+      tickprefix: 'R$ ',
+      tickformat: ',.0f'
+    },
+    hoverlabel: {
+      bgcolor: '#111827',
+      font: { color: '#fff' }}});
 }
 
 function renderBar(divId, title, keys, names){
@@ -308,6 +321,7 @@ function renderBar(divId, title, keys, names){
       x: months,
       y: months.map(m => parseValue(row[m])),
       name: names[i],
+      hovertemplate: '%{y:,.0f} <extra></extra>',
       marker:{
         color: fill,
         line:{ color: color, width:2 }
@@ -318,9 +332,14 @@ function renderBar(divId, title, keys, names){
   Plotly.newPlot(divId, traces, {
     title,
     barmode:'stack',
-    margin:{t:40,l:40,r:20,b:30},
-    legend:{orientation:'h',y:-0.25}
-  }, {responsive:true,displayModeBar:false});
+    margin:{t:40,l:60,r:20,b:30},
+    legend:{orientation:'h',y:-0.25},
+    yaxis: {
+      tickprefix: 'R$ ',
+      tickformat: ',.0f'
+    }
+  }
+);
 }
 
 fileInput.addEventListener('change', e => {
