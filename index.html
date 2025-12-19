@@ -344,8 +344,20 @@ function renderCards(containerId, defs){
     const cur = values[i];
     const prev = values[i-1] ?? cur;
     const diff = prev ? ((cur - prev) / prev) * 100 : 0;
+
     const polarity = KPI_POLARITY[label] || 'up';
-    const up = polarity === 'up' ? diff >= 0 : diff < 0;
+
+    const wentUp = diff >= 0;
+    const wentDown = diff < 0;
+
+    // Is this movement good for this KPI?
+    const isGood = polarity === 'up' ? wentUp : wentDown;
+
+    // Visuals
+    const arrow = wentUp ? '▲' : '▼';
+    const deltaClass = isGood ? 'up' : 'down';
+
+
 
 
     const sparkId = `spark-${containerId}-${key.replace(/[^a-zA-Z0-9]/g,'')}`;
@@ -366,7 +378,7 @@ function renderCards(containerId, defs){
         </div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-        <span class="delta ${up ? 'up':'down'}">${up?'▲':'▼'} ${Math.abs(diff).toFixed(1)}%</span>
+        <span class="delta ${deltaClass}">${arrow} ${diff.toFixed(1)}%</span>
         <div id="${sparkId}" style="width:90px;height:32px;"></div>
       </div>
     `;
